@@ -9,7 +9,7 @@ var minStartHealth = 200;
 var maxStartHealth = 300;
 var minbasic = 8;
 var maxbasic = 10;
-var minspecial = 100;
+var minspecial = 80;
 var maxspecial = 150;
 var mindefense = 10;
 var maxdefense = 25;
@@ -202,9 +202,12 @@ $(document).on("click", "#specialAttack", function(){
 	$("#messagebox").empty();
 	// check to see for active enemy
 		// decides whether the special attack lands or not
-		var x = getRndInteger(0,100)
+		var x = Math.random() * 100
+		var y = (31.4- 1/7*player.special);
+		console.log("random number: " + x)
+		console.log("special probability: " + y);
 		// SPECIAL ATTACK IS SUCCESSFUL
-		if (x < 18){
+		if (x < y){
 			if ((player.name == "Pikachu" && currentEnemy.name == "Squirtle") || (player.name == "Squirtle" && currentEnemy.name == "Charmander") || (player.name == "Charmander" && currentEnemy.name == "Bulbasaur") || (player.name == "Bulbasaur" && currentEnemy.name == "Squirtle")){
 				currentEnemy.health -= Math.floor((0.25*player.special))
 			}
@@ -254,7 +257,6 @@ $(document).on("click", "#specialAttack", function(){
 			}
 			if (a>=y){
 				countermiss();
-				$("#messagebox").append("<h6>Enemy " + currentEnemy.name + "'s attack missed! No health lost.</h6>");			
 			}
 		}
 	}
@@ -354,11 +356,6 @@ function basicAttack(){
 					if(currentEnemy.health <= 0){
 						console.log("he died!");
 						isDead();
-						// enemiesDefeated ++;
-						// console.log(enemiesDefeated);
-						// if(enemiesDefeated === 3){
-						// 	gameOver("W");
-						// }
 						return;
 					}					
 					$(computer).addClass("animated fadeOutLeft").one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',
@@ -390,10 +387,6 @@ function specialAttack(){
 					if(currentEnemy.health <= 0){
 						console.log("he died!");
 						isDead();
-						// enemiesDefeated ++;
-						// if(enemiesDefeated === 3){
-						// 	setTimeout(gameOver("W"),5000);
-						// }
 						return;
 					}					
 					$(computer).addClass("animated fadeOutLeft").one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',

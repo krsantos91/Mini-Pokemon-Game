@@ -1,0 +1,62 @@
+body{
+	text-align:center;
+	background-image: url("../images/background.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment:fixed;
+    background-size: cover;
+    background-color: #464646;
+    margin-bottom:60px;
+    font-family: 'Press Start 2P', cursive;
+
+}
+
+button:focus{
+  outline: none;
+}
+.helpbox{
+	text-align:left;
+}
+
+.character-box{
+	display:inline-block;
+	background-color:transparent;
+	border:none;
+}
+.sprite{
+	width:80px;
+	height:80px;
+	position:relative;
+	margin: 0 5px;
+}
+.flipped {
+    transform: scale(-1, 1);
+    -moz-transform: scale(-1, 1);
+    -webkit-transform: scale(-1, 1);
+    -o-transform: scale(-1, 1);
+    -khtml-transform: scale(-1, 1);
+    -ms-transform: scale(-1, 1);
+}
+.gameSprite{
+	width:1px;
+	height:1px;
+	margin: 0 5px;
+}
+#charactercontainer{
+	visibility:visible;
+}
+
+#playerstatsNAME,#playerstatsHEALTH,#enemystatsNAME,#enemystatsHEALTH,#enemystatsCOUNTER{
+	padding-top:10px;
+	padding-bottom:3px;
+}
+
+#playerbox,#Pikachuimage,#Bulbasaurimage,#Charmanderimage,#Squirtleimage,#playerstatsHEALTH,#enemystatsHEALTH,#defense{
+	-webkit-animation-duration: .6s;
+}
+
+.row{
+	margin-bottom:5px;
+}
+
+

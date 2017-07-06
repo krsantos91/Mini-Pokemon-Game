@@ -1,0 +1,52 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>RPG game</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+	<link rel="stylesheet" href="assets/css/reset.css">
+	<link rel="stylesheet" href="assets/css/style.css">
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div style="text-align:left;margin-left:0;padding-left:0;position:fixed;top:2px;">
+	<div class="btn visible" id="helpbutton"><span class="glyphicon glyphicon-question-sign" style="font-size:40px"></span></div>
+	<div class="btn visible" id ="volumebutton"><span class="glyphicon glyphicon-volume-off" style="font-size:40px"></span></div>
+</div>
+<div class="container">
+<div class="row header">
+	<img class="img img-responsive center-block" src="assets/images/pokemonlogo.png" style="height:300px;margin-left:auto;margin-right:auto">
+</div>
+<div class="row" id="charactercontainer"></div>
+<div class="row" id="gamecontainer">
+	<div class="row">
+		<div class="col-xs-6" id="player">
+			<div class="row" id="playerbox"></div>
+			<div class="row"><span class="bg-success" id="playerstatsNAME"></span></div>
+			<div class="row"><span class="bg-success" id="playerstatsHEALTH"></span></div>	
+			<div class="row" id="playerstatsBUTTONS"></div>
+		</div>
+		<div class="col-xs-6">
+			<div class="row" id="enemybox"></div>
+			<div class="row"><span class="bg-danger" id="enemystatsNAME"></span></div>
+			<div class="row"><span class="bg-danger" id="enemystatsHEALTH"></span></div>
+			<div class="row"><span class="bg-danger" id="enemystatsCounter"></span></div>			
+		</div>
+	</div>	
+</div>
+<div class="row container-fluid bg-warning" id="messagebox" style="margin-top:30px;border:1px black solid"></div>
+<div class="row container-fluid bg-warning hidden" id="messagebox2" style="margin-top:15px;font-size:10px;border:1px black solid"></div>
+
+	
+
+
+</div>
+<script type="text/javascript" src="assets/javascript/RPG.js"></script>	
+</body>
+</html>

@@ -204,7 +204,7 @@ $(document).on("click", "#specialAttack", function(){
 		// decides whether the special attack lands or not
 		var x = getRndInteger(0,100)
 		// SPECIAL ATTACK IS SUCCESSFUL
-		if (x < 99){
+		if (x < 18){
 			if ((player.name == "Pikachu" && currentEnemy.name == "Squirtle") || (player.name == "Squirtle" && currentEnemy.name == "Charmander") || (player.name == "Charmander" && currentEnemy.name == "Bulbasaur") || (player.name == "Bulbasaur" && currentEnemy.name == "Squirtle")){
 				currentEnemy.health -= Math.floor((0.25*player.special))
 			}

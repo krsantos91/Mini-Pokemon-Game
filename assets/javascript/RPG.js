@@ -8,7 +8,7 @@ var spriteObject = {
 var minStartHealth = 200;
 var maxStartHealth = 300;
 var minbasic = 8;
-var maxbasic = 10;
+var maxbasic = 15;
 var minspecial = 80;
 var maxspecial = 150;
 var mindefense = 10;
@@ -203,7 +203,7 @@ $(document).on("click", "#specialAttack", function(){
 	// check to see for active enemy
 		// decides whether the special attack lands or not
 		var x = Math.random() * 100
-		var y = (31.4- 1/7*player.special);
+		var y = (36.43- 1/7*player.special);
 		console.log("random number: " + x)
 		console.log("special probability: " + y);
 		// SPECIAL ATTACK IS SUCCESSFUL
@@ -276,7 +276,7 @@ $(document).on("click", "#defense", function(){
 	}
 	if(currentEnemy.health >0){
 	$("#messagebox").empty();
-	var x = getRndInteger(3,8);
+	var x = getRndInteger(5,10);
 	if((x + player.defense) > 65){
 		player.defense = 65;
 		$("#messagebox").append("<h6>" + player.name + " is at maximum defense.</h6>")

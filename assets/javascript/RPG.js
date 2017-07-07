@@ -159,7 +159,7 @@ $(document).on("click",".enemyplayer", function(){
 });
 
 // gameplay for a basic attack
-$(document).on("click","#basicAttack", function(){
+$(document).on("click","#basicAttack", debounce(function(){
 	if (currentEnemy.health > 0){
 	$("#messagebox").empty();
 	// check to see if theres an active enemy
@@ -197,16 +197,16 @@ $(document).on("click","#basicAttack", function(){
 	else{
 		$("#messagebox").text("No enemy selected. Please select a Pokemon to battle!");
 	}
-});
+},250));
 
 // gameplay for a special attack
-$(document).on("click", "#specialAttack", function(){
+$(document).on("click", "#specialAttack", debounce(function(){
 	if(currentEnemy.health >0){
 	$("#messagebox").empty();
 	// check to see for active enemy
 		// decides whether the special attack lands or not
 		var x = Math.random() * 100
-		var y = (43.71- 1.71*player.special);
+		var y = (43.71- .171*player.special);
 		console.log("random number: " + x)
 		console.log("special probability: " + y);
 		// SPECIAL ATTACK IS SUCCESSFUL
@@ -266,10 +266,10 @@ $(document).on("click", "#specialAttack", function(){
 	else{
 	 	$("#messagebox").text("No enemy selected. Please select a Pokemon to battle.");
 	 }	
-});
+},250));
 
 // gameplay for defense increase
-$(document).on("click", "#defense", function(){
+$(document).on("click", "#defense", debounce(function(){
 	if (player.defense == 65){
 		$("#messagebox").empty();
 		$("#messagebox").append("<h6> Defense is a maximum value 65</h6>")
@@ -317,7 +317,7 @@ $(document).on("click", "#defense", function(){
 	else{
 		$("messagebox").text("No enemy selected. Please select a pokemon to battle!")
 	}
-});
+},250));
 
 // FUNCTIONS
 function enemySelector(enemyname){
@@ -572,6 +572,21 @@ function gameOver(x){
 
 function getRndInteger(min, max) {
 return Math.floor(Math.random() * (max - min + 1) ) + min;
+};
+
+function debounce(func, wait, immediate) {
+	var timeout;
+	return function() {
+		var context = this, args = arguments;
+		var later = function() {
+			timeout = null;
+			if (!immediate) func.apply(context, args);
+		};
+		var callNow = immediate && !timeout;
+		clearTimeout(timeout);
+		timeout = setTimeout(later, wait);
+		if (callNow) func.apply(context, args);
+	};
 };
 
 

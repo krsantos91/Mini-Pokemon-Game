@@ -5,6 +5,8 @@ var spriteObject = {
 	sprite3: {name:"Charmander", imgsrc:"assets/images/charmander.gif", basicname:"Bite", specialname:"Ember", health:0, initialbasic:0, basic:0, special:0, defense:0, counter:0},
 	sprite4: {name:"Squirtle", imgsrc:"assets/images/squirtle.gif", basicname:"Tackle", specialname:"Watergun", health:0, initialbasic:0, basic:0, special:0, defense:0, counter:0}
 }
+var minplayerhealth = 250;
+var maxplayerhealth = 450;
 var minStartHealth = 200;
 var maxStartHealth = 300;
 var minbasic = 8;
@@ -25,7 +27,7 @@ enemies={};
 // initialize game conditions
 for(var i=1;i<5;i++){
 	//initialize stats for each character
-	spriteObject["sprite" + i].health = getRndInteger(minStartHealth,maxStartHealth);
+	spriteObject["sprite" + i].health = getRndInteger(minplayerHealth,maxplayerHealth);
 	spriteObject["sprite" + i].basic = getRndInteger(minbasic,maxbasic);
 	spriteObject["sprite" + i].initialbasic = spriteObject["sprite" + i].basic
 	spriteObject["sprite" + i].special= getRndInteger(minspecial,maxspecial);

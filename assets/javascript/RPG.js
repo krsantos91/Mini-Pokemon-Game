@@ -27,7 +27,7 @@ enemies={};
 // initialize game conditions
 for(var i=1;i<5;i++){
 	//initialize stats for each character
-	spriteObject["sprite" + i].health = getRndInteger(minplayerHealth,maxplayerHealth);
+	spriteObject["sprite" + i].health = getRndInteger(minStartHealth,maxStartHealth);
 	spriteObject["sprite" + i].basic = getRndInteger(minbasic,maxbasic);
 	spriteObject["sprite" + i].initialbasic = spriteObject["sprite" + i].basic
 	spriteObject["sprite" + i].special= getRndInteger(minspecial,maxspecial);
@@ -93,6 +93,7 @@ $(".character-box").on("click", function(){
 		}
 	}
 	//print the player image to the playerbox div
+	player.health = getRndInteger(minplayerhealth,maxplayerhealth);
 	var myPlayer = $("<img>");
 	myPlayer.attr("src", player.imgsrc);
 	myPlayer.addClass("flipped gameSprite");

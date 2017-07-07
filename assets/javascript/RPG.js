@@ -159,7 +159,14 @@ $(document).on("click",".enemyplayer", function(){
 });
 
 // gameplay for a basic attack
-$(document).on("click","#basicAttack", debounce(function(){
+
+var ignore = false;
+
+$(document).on("click","#basicAttack", function(){
+	if (ignore == true) return;
+	ignore = true;
+	setTimeout(function(){ignore = false}, 2500)
+
 	if (currentEnemy.health > 0){
 	$("#messagebox").empty();
 	// check to see if theres an active enemy
@@ -197,10 +204,14 @@ $(document).on("click","#basicAttack", debounce(function(){
 	else{
 		$("#messagebox").text("No enemy selected. Please select a Pokemon to battle!");
 	}
-},250));
+});
 
 // gameplay for a special attack
-$(document).on("click", "#specialAttack", debounce(function(){
+$(document).on("click", "#specialAttack",function(){
+	if (ignore == true) return;
+	ignore = true;
+	setTimeout(function(){ ignore = false}, 2500)
+
 	if(currentEnemy.health >0){
 	$("#messagebox").empty();
 	// check to see for active enemy
@@ -266,10 +277,17 @@ $(document).on("click", "#specialAttack", debounce(function(){
 	else{
 	 	$("#messagebox").text("No enemy selected. Please select a Pokemon to battle.");
 	 }	
-},250));
+});
+
+
 
 // gameplay for defense increase
-$(document).on("click", "#defense", debounce(function(){
+$(document).on("click", "#defense", function(){
+
+	if (ignore == true) return;
+	ignore = true;
+	setTimeout(function () { ignore = false}, 2500)
+
 	if (player.defense == 65){
 		$("#messagebox").empty();
 		$("#messagebox").append("<h6> Defense is a maximum value 65</h6>")
@@ -317,7 +335,7 @@ $(document).on("click", "#defense", debounce(function(){
 	else{
 		$("messagebox").text("No enemy selected. Please select a pokemon to battle!")
 	}
-},250));
+});
 
 // FUNCTIONS
 function enemySelector(enemyname){

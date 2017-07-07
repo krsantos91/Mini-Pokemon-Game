@@ -206,7 +206,7 @@ $(document).on("click", "#specialAttack", function(){
 	// check to see for active enemy
 		// decides whether the special attack lands or not
 		var x = Math.random() * 100
-		var y = (36.43- 1/7*player.special);
+		var y = (43.71- 1.71*player.special);
 		console.log("random number: " + x)
 		console.log("special probability: " + y);
 		// SPECIAL ATTACK IS SUCCESSFUL

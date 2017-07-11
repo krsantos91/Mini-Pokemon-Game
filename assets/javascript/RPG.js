@@ -58,7 +58,7 @@ $("#helpbutton").on("click",function(){
 	var helpbox = $("<div>");
 	helpbox.addClass("jumbotron ")
 	helpbox.attr("style", "position:absolute;top:100px;margin-right:50px");
-	helpbox.append("<h5>GAMEPLAY:</h5><br><h7>Each time the game is initalized, each pokemon is assigned a random health, basic attack(e.g. Tackle), special attack(e.g. Ember) and defense. The player chooses one character and must battle and defeat all 3 in order to win the game. The player always initiates the combat and the enemy pokemon attacks afterwards unless it is defeated.</h7><br><br><h5>ATTACK BUTTONS:<br><br>Basic Attack: Basic attacks never miss and get stronger each time they are used.<br><br>Special Attacks: Special attacks are much more powerful, but are not always accurate and will sometimes miss the enemy character. Additionally, special attacks receive a bonus multiplier when used against vulnerable Pokemon types (e.g. water against fire).<br><br>Defense: Increasing defense will increase the chance of an enemy's counter attacks missing. The max defense that a pokemon can have is 65.</h7><hr>");
+	helpbox.append("<h5>GAMEPLAY:</h5><br><h7>Each time the game is initalized, each pokemon is assigned a random health, basic attack(e.g. Tackle), special attack(e.g. Ember) and defense. The player chooses one character and must battle and defeat all 3 in order to win the game. The player always initiates the combat and the enemy pokemon attacks afterwards unless it is defeated.</h7><br><br><h5>ATTACK BUTTONS:<br><br>Basic Attack: Basic attacks never miss and get stronger each time they are used.<br><br>Special Attack: Special attacks are much more powerful, but are not always accurate and will sometimes miss the enemy character. Additionally, special attacks receive a bonus multiplier when used against vulnerable Pokemon types (e.g. water against fire).<br><br>Defense: Increasing defense will increase the chance of an enemy's counter attacks missing. The max defense that a pokemon can have is 65.</h7><hr>");
 	var closehelp = $("<div>");
 	closehelp.addClass("btn btn-danger");
 	closehelp.text("Close");
@@ -98,6 +98,7 @@ $(".character-box").on("click", function(){
 	myPlayer.attr("src", player.imgsrc);
 	myPlayer.addClass("flipped gameSprite");
 	$("#playerbox").append(myPlayer);
+
 	//print the enemy images to the enemybox div as buttons
 	for(var j = 1; j<4; j++){
 		var myEnemy = $("<button>");
@@ -135,7 +136,7 @@ $(".character-box").on("click", function(){
 	$("#messagebox").empty();
 
 	$("#messagebox").append("<h6>Choose a pokemon to battle! You must defeat all 3 to win.</h6>");
-	$("#messagebox2").append("<div>Every time <span class='bg-primary'>basic attack</span> is used, its power increases.</div><br><div><span style='background-color:red;color:white'>Special attacks</span> is not always accurate.</div><br><div>Use <span style='background-color:#5cd65c;color:white'>defense</span> to increase chances of missed enemy attacks.</div>");
+	$("#messagebox2").append("<div>Every time <span class='bg-primary'>basic attack</span> is used, its power increases.</div><br><div><span style='background-color:red;color:white'>Special attack</span> is not always accurate.</div><br><div>Use <span style='background-color:#5cd65c;color:white'>defense</span> to increase chances of missed enemy attacks.</div>");
 });
 
 // when a enemy is selected, set it to the current fighter against player
@@ -217,7 +218,7 @@ $(document).on("click", "#specialAttack",function(){
 	// check to see for active enemy
 		// decides whether the special attack lands or not
 		var x = Math.random() * 100
-		var y = (43.71- .171*player.special);
+		var y = (47.14- (3/14)*player.special);
 		console.log("random number: " + x)
 		console.log("special probability: " + y);
 		// SPECIAL ATTACK IS SUCCESSFUL
@@ -556,6 +557,7 @@ function isDead(){
 		}
 		});	
 };
+
  // takes in input as W for win or L for loss and displays corresponding message
 function gameOver(x){
 	$("#messagebox").remove();
@@ -571,21 +573,6 @@ function gameOver(x){
 	}	
 	mymessage.addClass("animated bounceInDown");
 	$(".container").append(mymessage);
-
-
-	// $("#gamecontainer").addClass("animated jello").one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',
-	// 	function(){
-	// 		$("#gamecontainer").remove();
-	// 		var message = $("<div>");
-	// 		message.addClass("jumbotron");
-	// 		if(x === "W"){
-	// 			message.append("<h6>Congratulations, you won! Please refresh to play again!</h6>")
-	// 		}
-	// 		else{
-	// 			message.append("<h6>Sorry, better luck next time. Thanks for playing! Please refresh the browser to play again.</h6>");
-	// 		}
-	// 		$(".container").append(message);
-	// 	});
 };
 
 function getRndInteger(min, max) {

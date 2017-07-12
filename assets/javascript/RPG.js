@@ -24,6 +24,8 @@ var enemiesDefeated = 0;
 player={};
 enemies={};
 
+var audio = new Audio("assets/sounds/pokemonfightsong.mp3");
+
 // initialize game conditions
 for(var i=1;i<5;i++){
 	//initialize stats for each character
@@ -77,6 +79,7 @@ $("#messagebox").append("<h6>Choose your pokemon!</h6>");
 
 // start the game when a character is selected as the player
 $(".character-box").on("click", function(){
+	audio.play();
 	//remove the character selection div from the screen
 	$("#messagebox2").removeClass("hidden");
 	$("#charactercontainer").remove();
